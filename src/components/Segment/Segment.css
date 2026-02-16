@@ -1,0 +1,14 @@
+@media (min-width: 1024px) {
+  .segment {
+    height: 530px;
+    position: relative;
+  }
+}
+@media (max-width: 1023px) {
+  .segment {
+    margin: 0 20px;
+    border-bottom: 1px solid gray;
+  }
+}
+
+/*# sourceMappingURL=Segment.css.map */

@@ -1,0 +1,37 @@
+h3 {
+  display: flex;
+  justify-content: space-between;
+  font-size: calc(150px + 3vw);
+  gap: 10%;
+  flex-wrap: wrap;
+  height: 100%;
+  margin: 0;
+}
+@media (max-width: 1023px) {
+  h3 {
+    font-size: calc(10px + 14vw);
+  }
+}
+@media (min-width: 1024px) {
+  h3 {
+    width: 100%;
+    position: absolute;
+    background-image: linear-gradient(0deg, gray 1px, transparent 2px);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.startDate {
+  color: #5d5fef;
+}
+
+.endDate {
+  color: #ef5da8;
+}
+
+/*# sourceMappingURL=Years.css.map */

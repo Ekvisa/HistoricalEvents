@@ -1,0 +1,37 @@
+.eventsSlider {
+  background-color: lightcyan;
+  position: relative;
+  padding-left: calc(100% / 12);
+  padding-right: calc(100% / 12);
+}
+
+@media (min-width: 1024px) {
+  .switchEvent {
+    position: absolute;
+    background: white;
+    box-shadow: 0 0 5px 5px rgba(56, 119, 238, 0.25);
+    border: none;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+  }
+  #nextEvent {
+    right: calc(100% / 24);
+    transform: translate(50%, -50%);
+  }
+  #prevEvent {
+    left: calc(100% / 24);
+    transform: translate(-50%, -50%);
+  }
+}
+@media (max-width: 1023px) {
+  .eventsSlider {
+    padding: 0;
+    .switchEvent {
+      display: none;
+    }
+    .swiper-slide {
+      margin-left: 20px;
+    }
+  }
+}

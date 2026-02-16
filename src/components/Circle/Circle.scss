@@ -1,0 +1,58 @@
+@mixin activeSwitcher {
+  background-color: #e5e5e5;
+  transition: 1s;
+  width: 56px;
+  height: 56px;
+  border: 1px solid gray;
+  top: calc(50% - 28px);
+  left: calc(50% - 28px);
+  .switcherNumber {
+    opacity: 1;
+  }
+}
+.circle {
+  transition: transform 1s;
+  width: 530px;
+  height: 530px;
+  border: 1px solid gray;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+  @media (max-width: 1023px) {
+    display: none;
+  }
+  .segmentSwitcher {
+    position: absolute;
+    top: calc(50% - 3px);
+    left: calc(50% - 3px);
+    width: 6px;
+    height: 6px;
+    background-color: #42567a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .switcherNumber {
+      opacity: 0;
+      position: relative;
+      font-size: 20px;
+      .segmentLabel {
+        position: absolute;
+        left: 56px;
+        font-weight: bold;
+        color: transparent;
+        transition: color 1s 1s;
+      }
+    }
+    &.active {
+      @include activeSwitcher();
+      .segmentLabel {
+        color: unset;
+      }
+    }
+    &:hover {
+      @include activeSwitcher();
+      cursor: pointer;
+    }
+  }
+}
