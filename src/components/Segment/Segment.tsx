@@ -10,20 +10,30 @@ type SegmentProps = {
   segment: Segment;
   onSegmentClick: (segment: Segment) => void;
   rotation: number;
+  prevSegment: Segment;
 };
 
-function Segment({ segment, onSegmentClick, rotation }: SegmentProps) {
+function Segment({
+  segment,
+  onSegmentClick,
+  rotation,
+  prevSegment,
+}: SegmentProps) {
   if (!segment) return null;
   return (
     <div className="segment">
       <Circle
         segmentsOnCircle={segments}
         activeSegment={segment}
-        prevSegment={segment}
         onSegmentClick={onSegmentClick}
         rotation={rotation}
       />
-      <Years start={segment.start} end={segment.end} />
+      <Years
+        start={segment.start}
+        end={segment.end}
+        prevStart={prevSegment.start}
+        prevEnd={prevSegment.end}
+      />
     </div>
   );
 }
