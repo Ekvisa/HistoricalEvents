@@ -1,4 +1,4 @@
-h3 {
+h2 {
   display: flex;
   justify-content: space-between;
   font-size: calc(150px + 3vw);
@@ -8,12 +8,12 @@ h3 {
   margin: 0;
 }
 @media (max-width: 1023px) {
-  h3 {
+  h2 {
     font-size: calc(10px + 14vw);
   }
 }
 @media (min-width: 1024px) {
-  h3 {
+  h2 {
     width: 100%;
     position: absolute;
     top: 0;
@@ -29,7 +29,7 @@ h3 {
 }
 
 .startDate {
-  color: #5d5fef;
+  color: #3877ee;
 }
 
 .endDate {

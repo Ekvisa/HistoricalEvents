@@ -1,8 +1,18 @@
 .eventsSlider {
-  background-color: lightcyan;
   position: relative;
   padding-left: 8.3333333333%;
   padding-right: 8.3333333333%;
+  margin: 20px 0;
+  min-height: 220px;
+  display: flex;
+}
+.eventsSlider h3 {
+  color: #3877ee;
+}
+@media (min-width: 1024px) {
+  .eventsSlider {
+    align-items: center;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -14,6 +24,9 @@
     top: 50%;
     width: 40px;
     height: 40px;
+  }
+  .switchEvent:disabled {
+    cursor: unset;
   }
   #nextEvent {
     right: 4.1666666667%;
@@ -33,6 +46,9 @@
   }
   .eventsSlider .swiper-slide {
     margin-left: 20px;
+  }
+  .eventsSlider .swiper-slide:not(:first-child) {
+    opacity: 0.5;
   }
 }
 

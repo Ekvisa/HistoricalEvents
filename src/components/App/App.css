@@ -20,7 +20,8 @@ body {
 .App {
   display: flex;
   flex-direction: column;
-  padding: 40px 0;
+  justify-content: space-between;
+  min-height: 100vh;
   position: relative;
 }
 @media (min-width: 1024px) {
@@ -33,22 +34,54 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: 1px 100%;
+    justify-content: end;
   }
 }
 .App .segmentsNavigation {
   position: absolute;
-  bottom: 0;
+  bottom: 20px;
+  left: 20px;
 }
 @media (min-width: 1024px) {
   .App .segmentsNavigation {
-    bottom: 31%;
+    bottom: 30%;
+    left: 8.3333333333%;
+  }
+}
+.App .segmentsNavigation .switchSegment {
+  color: #42567a;
+  border-color: #9ba6ba;
+  width: 50px;
+  height: 50px;
+  background: transparent no-repeat center;
+}
+.App .segmentsNavigation .switchSegment:disabled {
+  color: #9ba6ba;
+  border-color: #c8ceda;
+  cursor: unset;
+}
+
+@media (min-width: 1024px) {
+  .underlay {
+    position: relative;
+  }
+}
+@media (max-width: 1023px) {
+  .underlay {
+    margin: 0 20px;
+    border-bottom: 1px solid gray;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 }
 
 .pagination {
   display: flex;
-  gap: 5%;
+  gap: 1%;
   justify-content: center;
+  margin-bottom: 60px;
 }
 .pagination .dot {
   width: 30px;
@@ -74,28 +107,19 @@ h1 {
 }
 @media (min-width: 1024px) {
   h1 {
-    background: linear-gradient(90deg, transparent 5px, white 6px), linear-gradient(0, #ef5da8, #3877ee);
+    background: linear-gradient(90deg, transparent 5px, #e5e5e5 6px), linear-gradient(0, #ef5da8, #3877ee);
     font-size: 56px;
     padding: 0 8.3333333333%;
+    position: absolute;
+    left: 0;
+    top: -1em;
+    z-index: -1;
   }
 }
 @media (max-width: 1023px) {
   h1 {
-    padding: 0 20px;
-    font-size: 20px;
+    padding: 3em 0;
   }
-}
-
-.switchSegment {
-  color: #42567a;
-  border-color: #9ba6ba;
-  width: 50px;
-  height: 50px;
-  background: transparent no-repeat center;
-}
-.switchSegment.disabled {
-  color: #9ba6ba;
-  border-color: #c8ceda;
 }
 
 /*# sourceMappingURL=App.css.map */

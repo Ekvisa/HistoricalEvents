@@ -41,10 +41,10 @@ function Years({ start, end, prevStart, prevEnd }: YearsProps) {
   }, [start, end, prevStart, prevEnd]);
 
   return (
-    <h3>
+    <h2>
       <span className="startDate">{displayStart}</span>
       <span className="endDate">{displayEnd}</span>
-    </h3>
+    </h2>
   );
 }
 

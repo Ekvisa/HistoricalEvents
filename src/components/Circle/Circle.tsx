@@ -57,7 +57,6 @@ function Circle({
     >
       {segmentSwitchers}
     </div>
-    // <Years start={activeSegment.start} end={activeSegment.end} />
   );
 }
 

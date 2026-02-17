@@ -1,7 +1,6 @@
-import React, { useRef } from "react";
 import { events } from "../../data/events";
 
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import ArrowLeft from "../../interface_images/chevron-left";
@@ -52,7 +51,7 @@ function Events({ start, end, label }: eventsProps) {
         >
           {eventsForSegment.map((e) => (
             <SwiperSlide>
-              <p>{e.year}</p>
+              <h3>{e.year}</h3>
               <p>{e.description}</p>
             </SwiperSlide>
           ))}
