@@ -12,6 +12,8 @@ h3 {
   @media (min-width: 1024px) {
     width: 100%;
     position: absolute;
+    top: 0;
+    z-index: -1;
     background-image: linear-gradient(0deg, gray 1px, transparent 2px);
     background-position: center;
     background-repeat: no-repeat;

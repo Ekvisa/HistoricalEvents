@@ -1,17 +1,58 @@
-import React from "react";
-// import { segments } from "../../data/segments";
+import React, { useState } from "react";
 
 import "./Circle.css";
-import Segment from "../Segment/Segment";
+
+import Years from "../Years/Years";
+import { segments } from "../../data/segments";
+import { Segment } from "../../types/timeline";
 
 type CircleProps = {
   segmentsOnCircle: Segment[];
-  activeSegmentID: number;
+  activeSegment: Segment;
+  prevSegment: Segment; //to calculate the shortest rotation
+  onSegmentClick: (segment: Segment) => void;
 };
 
-function Circle({ segmentsOnCircle, activeSegmentID }: CircleProps) {
-  console.log(`activeSegmentID = ${activeSegmentID}`);
-  const segment = 360 / segmentsOnCircle.length; //one circle segment, measured in deg
+function Circle({
+  segmentsOnCircle,
+  activeSegment,
+  prevSegment,
+  onSegmentClick,
+}: CircleProps) {
+  const segmentDeg = 360 / segmentsOnCircle.length;
+
+  const prevAngle = -segmentDeg;
+  console.log(`prevAngle = ${prevAngle}`);
+  const activeAngle = -segmentDeg * activeSegment.id;
+  console.log(`activeAngle = ${activeAngle}`);
+
+  let delta = activeAngle - prevAngle;
+  console.log(`delta = ${delta}`);
+
+  //кратчайший путь
+  if (delta > 180) delta -= 360;
+  if (delta < -180) delta += 360;
+
+  console.log(`shortest way = ${delta}`);
+
+  const calculatedRotation = prevAngle + delta;
+
+  console.log(`calculatedRotation = ${calculatedRotation}`);
+
+  // const prevAngle = -segmentDeg * prevSegment.id;
+  // console.log(`prevAngle = ${prevAngle}`);
+  // const activeAngle = -segmentDeg * activeSegment.id;
+  // console.log(`activeAngle = ${activeAngle}`);
+
+  // let delta = activeAngle - prevAngle;
+  // console.log(`delta = ${delta}`);
+
+  // //кратчайший путь
+  // if (delta > 180) delta -= 360;
+  // if (delta < -180) delta += 360;
+
+  // const calculatedRotation = prevAngle + delta;
+
   let segmentSwitchers = [];
 
   //Creating switchers on the circle:
@@ -19,16 +60,17 @@ function Circle({ segmentsOnCircle, activeSegmentID }: CircleProps) {
     segmentSwitchers.push(
       <div
         key={segmentsOnCircle[i].id}
-        className={`segmentSwitcher ${i === activeSegmentID && "active"}`}
+        onClick={() => onSegmentClick(segmentsOnCircle[i])} //
+        className={`segmentSwitcher ${i === activeSegment.id && "active"}`}
         style={{
           //circle radius = 265px, therefore:
-          transform: `rotate(${segment * (i - 1)}deg) translate(265px)`, //rotate and shift every switcher, startng from (-segment)deg
+          transform: `rotate(${segmentDeg * (i - 1)}deg) translate(265px)`, //rotate and shift every switcher, startng from (-segment)deg
         }}
       >
         <div
           className="switcherNumber"
           style={{
-            transform: `rotate(${segment - segment * (i - activeSegmentID)}deg)`, //normalize the text position
+            transform: `rotate(${segmentDeg - segmentDeg * (i - activeSegment.id)}deg)`, //normalize the text position
           }}
         >
           {i + 1}
@@ -39,13 +81,17 @@ function Circle({ segmentsOnCircle, activeSegmentID }: CircleProps) {
   }
 
   return (
-    <div
-      className="circle"
-      style={{
-        transform: `rotate(${(-360 / segmentsOnCircle.length) * activeSegmentID}deg)`,
-      }}
-    >
-      {segmentSwitchers}
+    <div className="underlay">
+      <div
+        className="circle"
+        style={{
+          // transform: `rotate(${-segmentDeg * activeSegment.id}deg)`,
+          transform: `rotate(${calculatedRotation}deg)`,
+        }}
+      >
+        {segmentSwitchers}
+      </div>
+      <Years start={activeSegment.start} end={activeSegment.end} />
     </div>
   );
 }

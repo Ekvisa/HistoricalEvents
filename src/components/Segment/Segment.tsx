@@ -8,14 +8,20 @@ import Circle from "../Circle/Circle";
 
 type SegmentProps = {
   segment: Segment;
+  onSegmentClick: (segment: Segment) => void;
 };
 
-function Segment({ segment }: SegmentProps) {
+function Segment({ segment, onSegmentClick }: SegmentProps) {
   if (!segment) return null;
   return (
     <div className="segment">
+      <Circle
+        segmentsOnCircle={segments}
+        activeSegment={segment}
+        prevSegment={segment}
+        onSegmentClick={onSegmentClick}
+      />
       <Years start={segment.start} end={segment.end} />
-      <Circle segmentsOnCircle={segments} activeSegmentID={segment.id} />
     </div>
   );
 }

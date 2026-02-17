@@ -45,6 +45,17 @@ body {
   }
 }
 
+// .segment {
+//   @media (min-width: 1024px) {
+//     height: 530px;
+//     position: relative;
+//   }
+//   @media (max-width: 1023px) {
+//     margin: 0 20px;
+//     border-bottom: 1px solid gray;
+//   }
+// }
+
 .pagination {
   display: flex;
   gap: 5%;
