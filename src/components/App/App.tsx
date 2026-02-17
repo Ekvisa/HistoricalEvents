@@ -13,11 +13,35 @@ function App() {
   const [activeSegment, setActiveSegment] = useState<Segment>(segments[0]);
   const [prevSegment, setPrevSegment] = useState<Segment>(segments[0]);
 
-  const handleSegmentClick = (segment: Segment) => {
+  const [rotation, setRotation] = useState(0);
+
+  // const handleSegmentClick = (segment: Segment) => {
+  //   if (segment.id === activeSegment.id) return;
+  //   setPrevSegment(activeSegment);
+  //   setActiveSegment(segment);
+  // };
+
+  //new
+  // const TARGET = -60; // угол, где должна быть активная точка
+  const segmentDeg = 360 / TOTAL_SEGMENTS;
+
+  function handleSegmentClick(segment: Segment) {
     if (segment.id === activeSegment.id) return;
-    setPrevSegment(activeSegment);
+
+    const desiredRotation = -segment.id * segmentDeg;
+
+    let delta = desiredRotation - rotation;
+
+    // кратчайший путь
+    if (delta > 180) delta -= 360;
+    if (delta < -180) delta += 360;
+
+    const finalRotation = rotation + delta;
+
+    setRotation(finalRotation);
     setActiveSegment(segment);
-  };
+  }
+  //new
 
   function decreaseSegment() {
     setActiveSegment((prevSegment) =>
@@ -88,6 +112,7 @@ function App() {
         activeSegment={activeSegment}
         prevSegment={prevSegment}
         onSegmentClick={handleSegmentClick}
+        rotation={rotation}
       />
 
       {drawNavigation()}

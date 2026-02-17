@@ -11,6 +11,7 @@ type CircleProps = {
   activeSegment: Segment;
   prevSegment: Segment; //to calculate the shortest rotation
   onSegmentClick: (segment: Segment) => void;
+  rotation: number;
 };
 
 function Circle({
@@ -18,12 +19,15 @@ function Circle({
   activeSegment,
   prevSegment,
   onSegmentClick,
+  rotation,
 }: CircleProps) {
   const segmentDeg = 360 / segmentsOnCircle.length;
 
-  const prevAngle = -segmentDeg;
+  let prevAngle = -segmentDeg * prevSegment.id;
+
   console.log(`prevAngle = ${prevAngle}`);
-  const activeAngle = -segmentDeg * activeSegment.id;
+  let activeAngle = -segmentDeg * activeSegment.id;
+
   console.log(`activeAngle = ${activeAngle}`);
 
   let delta = activeAngle - prevAngle;
@@ -32,26 +36,10 @@ function Circle({
   //кратчайший путь
   if (delta > 180) delta -= 360;
   if (delta < -180) delta += 360;
+  console.log(`кратчайший путь = ${delta}`);
 
-  console.log(`shortest way = ${delta}`);
-
-  const calculatedRotation = prevAngle + delta;
-
-  console.log(`calculatedRotation = ${calculatedRotation}`);
-
-  // const prevAngle = -segmentDeg * prevSegment.id;
-  // console.log(`prevAngle = ${prevAngle}`);
-  // const activeAngle = -segmentDeg * activeSegment.id;
-  // console.log(`activeAngle = ${activeAngle}`);
-
-  // let delta = activeAngle - prevAngle;
-  // console.log(`delta = ${delta}`);
-
-  // //кратчайший путь
-  // if (delta > 180) delta -= 360;
-  // if (delta < -180) delta += 360;
-
-  // const calculatedRotation = prevAngle + delta;
+  let calculatedRotation = prevAngle + delta;
+  console.log(`prevAngle + delta = ${calculatedRotation}`);
 
   let segmentSwitchers = [];
 
@@ -60,7 +48,7 @@ function Circle({
     segmentSwitchers.push(
       <div
         key={segmentsOnCircle[i].id}
-        onClick={() => onSegmentClick(segmentsOnCircle[i])} //
+        onClick={() => onSegmentClick(segmentsOnCircle[i])} //dont delete
         className={`segmentSwitcher ${i === activeSegment.id && "active"}`}
         style={{
           //circle radius = 265px, therefore:
@@ -86,7 +74,8 @@ function Circle({
         className="circle"
         style={{
           // transform: `rotate(${-segmentDeg * activeSegment.id}deg)`,
-          transform: `rotate(${calculatedRotation}deg)`,
+          // transform: `rotate(${calculatedRotation}deg)`,
+          transform: `rotate(${rotation}deg)`, //new
         }}
       >
         {segmentSwitchers}
