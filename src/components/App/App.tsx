@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.css";
+import "./App.scss";
 import { segments } from "../../data/segments";
 import Circle from "../Circle/Circle";
 import Events from "../Events/Events";

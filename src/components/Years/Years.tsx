@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./Years.css";
+import "./Years.scss";
 
 type YearsProps = {
   start: number;

@@ -10,7 +10,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import "./Events.css";
+import "./Events.scss";
 
 export function getEventsForSegment(
   segmentStart: number,

@@ -1,10 +1,11 @@
-@mixin activeSwitcher {
-  background-color: #e5e5e5;
+@use "../colors" as *;
 
+@mixin activeSwitcher {
+  background-color: $bgColor;
   transition: 1s;
   width: 56px;
   height: 56px;
-  border: 1px solid gray;
+  border: 1px solid $grayColor;
   top: calc(50% - 28px);
   left: calc(50% - 28px);
   .switcherNumber {
@@ -16,7 +17,7 @@
   transition: transform 1s;
   width: 530px;
   height: 530px;
-  border: 1px solid gray;
+  border: 1px solid $lightGrayColor;
   border-radius: 50%;
   margin: 0 auto;
   position: relative;
@@ -29,7 +30,7 @@
     left: calc(50% - 3px);
     width: 6px;
     height: 6px;
-    background-color: #42567a;
+    background-color: $mainContentColor;
     border-radius: 50%;
     display: flex;
     align-items: center;

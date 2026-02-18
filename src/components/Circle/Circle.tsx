@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
-import "./Circle.css";
-
-import Years from "../Years/Years";
+import "./Circle.scss";
 
 import { Segment } from "../../types/timeline";
 

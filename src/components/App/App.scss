@@ -1,8 +1,5 @@
-@import "../colors";
+@use "../colors" as *;
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-
-$mainContentColor: #42567a;
-$bgColor: #f4f5f9;
 
 .roundButton {
   border-radius: 50%;
@@ -18,33 +15,36 @@ $bgColor: #f4f5f9;
 body {
   margin: 0;
   background-color: $bgColor;
-  font-family: "PT Sans", Arial, Helvetica, sans-serif;
-  color: $mainContentColor;
 }
 
 .App {
+  font-family: "PT Sans", Arial, Helvetica, sans-serif;
+  color: $mainContentColor;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
   position: relative;
-
   .segmentsNavigation {
     position: absolute;
     bottom: 20px;
     left: 20px;
     .switchSegment {
+      gap: 20px;
+      .roundButton {
+        width: 50px;
+        height: 50px;
+      }
+    }
+    .switchSegment {
       display: flex;
-      gap: 10px;
       .roundButton {
         color: $mainContentColor;
-        border-color: #9ba6ba;
-        width: 25px;
-        height: 25px;
+        border-color: $grayColor;
         background: transparent no-repeat center;
         &:disabled {
-          color: #9ba6ba;
-          border-color: #c8ceda;
+          color: $lightGrayColor;
+          border-color: $lightGrayColor;
           cursor: unset;
         }
       }
@@ -52,10 +52,14 @@ body {
   }
   @media (min-width: 1024px) {
     margin: 0 calc(100% / 12) 0 calc(100% / 6);
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
+    border-left: 1px solid $lightGrayColor;
+    border-right: 1px solid $lightGrayColor;
     min-height: 100vh;
-    background-image: linear-gradient(90deg, gray 1px, transparent 2px);
+    background-image: linear-gradient(
+      90deg,
+      $lightGrayColor 1px,
+      transparent 2px
+    );
     background-position: center;
     background-repeat: no-repeat;
     background-size: 1px 100%;
@@ -63,13 +67,6 @@ body {
     .segmentsNavigation {
       bottom: 30%;
       left: 8.3333333333%;
-      .switchSegment {
-        gap: 20px;
-        .roundButton {
-          width: 50px;
-          height: 50px;
-        }
-      }
     }
   }
 }
@@ -80,11 +77,11 @@ body {
   }
   @media (max-width: 1023px) {
     margin: 0 20px;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid $grayColor;
     min-height: 50vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
 }
 
@@ -100,7 +97,7 @@ body {
     border-radius: 50%;
     cursor: pointer;
     border: none;
-    background-color: lightgray;
+    background-color: $grayColor;
   }
   .active {
     background-color: $mainContentColor;
@@ -115,15 +112,12 @@ h1 {
   @media (min-width: 1024px) {
     background:
       linear-gradient(90deg, transparent 5px, $bgColor 6px),
-      linear-gradient(0, #ef5da8, #3877ee);
+      linear-gradient(0, $endDateColor, $startDateColor);
     font-size: 56px;
     padding: 0 calc(100% / 12);
     position: absolute;
     left: 0;
     top: -1em;
     z-index: -1;
-  }
-  @media (max-width: 1023px) {
-    padding: 3em 0;
   }
 }

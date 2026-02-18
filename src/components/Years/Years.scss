@@ -1,3 +1,5 @@
+@use "../colors" as *;
+
 h2 {
   display: flex;
   justify-content: space-between;
@@ -14,7 +16,11 @@ h2 {
     position: absolute;
     top: 0;
     z-index: -1;
-    background-image: linear-gradient(0deg, gray 1px, transparent 2px);
+    background-image: linear-gradient(
+      0deg,
+      $lightGrayColor 1px,
+      transparent 2px
+    );
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 1px;
@@ -25,8 +31,8 @@ h2 {
 }
 
 .startDate {
-  color: #3877ee;
+  color: $startDateColor;
 }
 .endDate {
-  color: #ef5da8;
+  color: $endDateColor;
 }

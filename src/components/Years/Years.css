@@ -1,39 +1,17 @@
-h2 {
-  display: flex;
-  justify-content: space-between;
-  font-size: calc(150px + 3vw);
-  gap: 10%;
-  flex-wrap: wrap;
-  height: 100%;
-  margin: 0;
-}
-@media (max-width: 1023px) {
-  h2 {
-    font-size: calc(10px + 14vw);
-  }
-}
-@media (min-width: 1024px) {
-  h2 {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    z-index: -1;
-    background-image: linear-gradient(0deg, gray 1px, transparent 2px);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 1px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-  }
-}
+/* Error: Undefined variable.
+ *    ,
+ * 21 |       $lightGrayColor 1px,
+ *    |       ^^^^^^^^^^^^^^^
+ *    '
+ *   Years.scss 21:7  root stylesheet */
 
-.startDate {
-  color: #3877ee;
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined variable.\a    \2577 \a 21 \2502        $lightGrayColor 1px,\d\a    \2502        ^^^^^^^^^^^^^^^\a    \2575 \a   Years.scss 21:7  root stylesheet";
 }
-
-.endDate {
-  color: #ef5da8;
-}
-
-/*# sourceMappingURL=Years.css.map */

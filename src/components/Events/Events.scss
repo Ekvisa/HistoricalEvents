@@ -1,3 +1,5 @@
+@use "../colors" as *;
+
 .eventsSlider {
   position: relative;
   padding-left: calc(100% / 12);
@@ -6,7 +8,7 @@
   min-height: 220px;
   display: flex;
   h3 {
-    color: #3877ee;
+    color: $startDateColor;
   }
 
   @media (min-width: 1024px) {
@@ -21,7 +23,7 @@
   .switchEvent {
     position: absolute;
     background: white;
-    box-shadow: 0 0 5px 5px rgba(56, 119, 238, 0.25);
+    box-shadow: 0 0 10px 0 $grayColor;
     border: none;
     top: 50%;
     width: 40px;

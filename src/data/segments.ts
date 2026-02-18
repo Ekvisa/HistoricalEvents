@@ -7,5 +7,4 @@ export const segments: Segment[] = [
   { id: 3, start: 1999, end: 2004, label: "Культура" },
   { id: 4, start: 2006, end: 2014, label: "Спорт" },
   { id: 5, start: 2015, end: 2022, label: "Наука" },
-  { id: 6, start: 2020, end: 2026, label: "Музыка" },
 ];
