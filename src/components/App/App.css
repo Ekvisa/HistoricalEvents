@@ -12,7 +12,7 @@
 
 body {
   margin: 0;
-  background-color: #e5e5e5;
+  background-color: #f4f5f9;
   font-family: "PT Sans", Arial, Helvetica, sans-serif;
   color: #42567a;
 }
@@ -23,6 +23,27 @@ body {
   justify-content: space-between;
   min-height: 100vh;
   position: relative;
+}
+.App .segmentsNavigation {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+.App .segmentsNavigation .switchSegment {
+  display: flex;
+  gap: 10px;
+}
+.App .segmentsNavigation .switchSegment .roundButton {
+  color: #42567a;
+  border-color: #9ba6ba;
+  width: 25px;
+  height: 25px;
+  background: transparent no-repeat center;
+}
+.App .segmentsNavigation .switchSegment .roundButton:disabled {
+  color: #9ba6ba;
+  border-color: #c8ceda;
+  cursor: unset;
 }
 @media (min-width: 1024px) {
   .App {
@@ -36,29 +57,17 @@ body {
     background-size: 1px 100%;
     justify-content: end;
   }
-}
-.App .segmentsNavigation {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-}
-@media (min-width: 1024px) {
   .App .segmentsNavigation {
     bottom: 30%;
     left: 8.3333333333%;
   }
-}
-.App .segmentsNavigation .switchSegment {
-  color: #42567a;
-  border-color: #9ba6ba;
-  width: 50px;
-  height: 50px;
-  background: transparent no-repeat center;
-}
-.App .segmentsNavigation .switchSegment:disabled {
-  color: #9ba6ba;
-  border-color: #c8ceda;
-  cursor: unset;
+  .App .segmentsNavigation .switchSegment {
+    gap: 20px;
+  }
+  .App .segmentsNavigation .switchSegment .roundButton {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -79,19 +88,18 @@ body {
 
 .pagination {
   display: flex;
-  gap: 1%;
-  justify-content: center;
-  margin-bottom: 60px;
+  width: 30%;
+  justify-content: space-between;
+  margin: 0 auto 55px;
 }
 .pagination .dot {
-  width: 30px;
-  height: 30px;
-  padding: 10px;
+  width: 3px;
+  height: 3px;
+  padding: 5px;
   border-radius: 50%;
   cursor: pointer;
   border: none;
   background-color: lightgray;
-  background-clip: content-box;
 }
 .pagination .active {
   background-color: #42567a;
@@ -107,7 +115,7 @@ h1 {
 }
 @media (min-width: 1024px) {
   h1 {
-    background: linear-gradient(90deg, transparent 5px, #e5e5e5 6px), linear-gradient(0, #ef5da8, #3877ee);
+    background: linear-gradient(90deg, transparent 5px, #f4f5f9 6px), linear-gradient(0, #ef5da8, #3877ee);
     font-size: 56px;
     padding: 0 8.3333333333%;
     position: absolute;

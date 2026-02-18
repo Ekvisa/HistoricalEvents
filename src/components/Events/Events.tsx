@@ -31,9 +31,6 @@ type eventsProps = {
 
 function Events({ start, end, label }: eventsProps) {
   const eventsForSegment = getEventsForSegment(start, end, label);
-  if (eventsForSegment.length === 0) {
-    return <p>Нет событий</p>;
-  }
   return (
     <div>
       <div className="eventsSlider">
@@ -47,7 +44,7 @@ function Events({ start, end, label }: eventsProps) {
             nextEl: "#nextEvent",
           }}
           spaceBetween={20}
-          slidesPerView={4}
+          slidesPerView="auto"
         >
           {eventsForSegment.map((e) => (
             <SwiperSlide>

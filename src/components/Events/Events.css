@@ -13,6 +13,9 @@
   .eventsSlider {
     align-items: center;
   }
+  .eventsSlider .swiper-slide {
+    width: 300px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -46,6 +49,7 @@
   }
   .eventsSlider .swiper-slide {
     margin-left: 20px;
+    width: 200px;
   }
   .eventsSlider .swiper-slide:not(:first-child) {
     opacity: 0.5;

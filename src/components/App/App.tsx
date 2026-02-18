@@ -65,22 +65,24 @@ function App() {
         <p className="segmentNumber">
           {pad2(activeSegment.id + 1)}/{pad2(TOTAL_SEGMENTS)}
         </p>
-        <button
-          id="back"
-          className="switchSegment roundButton"
-          onClick={decreaseSegment}
-          disabled={activeSegment.id === 0}
-        >
-          <ArrowLeft />
-        </button>
-        <button
-          id="forth"
-          className="switchSegment roundButton"
-          onClick={increaseSegment}
-          disabled={activeSegment.id === TOTAL_SEGMENTS - 1}
-        >
-          <ArrowRight />
-        </button>
+        <div className="switchSegment">
+          <button
+            id="back"
+            className="roundButton"
+            onClick={decreaseSegment}
+            disabled={activeSegment.id === 0}
+          >
+            <ArrowLeft />
+          </button>
+          <button
+            id="forth"
+            className="roundButton"
+            onClick={increaseSegment}
+            disabled={activeSegment.id === TOTAL_SEGMENTS - 1}
+          >
+            <ArrowRight />
+          </button>
+        </div>
       </div>
     );
   }

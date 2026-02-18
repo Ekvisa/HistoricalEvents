@@ -11,6 +11,9 @@
 
   @media (min-width: 1024px) {
     align-items: center;
+    .swiper-slide {
+      width: 300px;
+    }
   }
 }
 
@@ -45,6 +48,7 @@
     }
     .swiper-slide {
       margin-left: 20px;
+      width: 200px;
       &:not(:first-child) {
         opacity: 0.5;
       }

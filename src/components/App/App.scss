@@ -1,4 +1,8 @@
+@import "../colors";
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+$mainContentColor: #42567a;
+$bgColor: #f4f5f9;
 
 .roundButton {
   border-radius: 50%;
@@ -11,13 +15,11 @@
   }
 }
 
-$buttonColor: #42567a;
-
 body {
   margin: 0;
-  background-color: #e5e5e5;
+  background-color: $bgColor;
   font-family: "PT Sans", Arial, Helvetica, sans-serif;
-  color: #42567a;
+  color: $mainContentColor;
 }
 
 .App {
@@ -26,37 +28,47 @@ body {
   justify-content: space-between;
   min-height: 100vh;
   position: relative;
+
+  .segmentsNavigation {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    .switchSegment {
+      display: flex;
+      gap: 10px;
+      .roundButton {
+        color: $mainContentColor;
+        border-color: #9ba6ba;
+        width: 25px;
+        height: 25px;
+        background: transparent no-repeat center;
+        &:disabled {
+          color: #9ba6ba;
+          border-color: #c8ceda;
+          cursor: unset;
+        }
+      }
+    }
+  }
   @media (min-width: 1024px) {
     margin: 0 calc(100% / 12) 0 calc(100% / 6);
     border-left: 1px solid gray;
     border-right: 1px solid gray;
     min-height: 100vh;
-
     background-image: linear-gradient(90deg, gray 1px, transparent 2px);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 1px 100%;
-
     justify-content: end;
-  }
-  .segmentsNavigation {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    @media (min-width: 1024px) {
+    .segmentsNavigation {
       bottom: 30%;
       left: 8.3333333333%;
-    }
-    .switchSegment {
-      color: #42567a;
-      border-color: #9ba6ba;
-      width: 50px;
-      height: 50px;
-      background: transparent no-repeat center;
-      &:disabled {
-        color: #9ba6ba;
-        border-color: #c8ceda;
-        cursor: unset;
+      .switchSegment {
+        gap: 20px;
+        .roundButton {
+          width: 50px;
+          height: 50px;
+        }
       }
     }
   }
@@ -78,23 +90,21 @@ body {
 
 .pagination {
   display: flex;
-  gap: 1%;
-  justify-content: center;
-  margin-bottom: 60px;
+  width: 30%;
+  justify-content: space-between;
+  margin: 0 auto 55px;
   .dot {
-    width: 30px;
-    height: 30px;
-    padding: 10px;
+    width: 3px;
+    height: 3px;
+    padding: 5px;
     border-radius: 50%;
     cursor: pointer;
     border: none;
     background-color: lightgray;
-    background-clip: content-box;
   }
   .active {
-    background-color: #42567a;
+    background-color: $mainContentColor;
   }
-
   @media (min-width: 1024px) {
     display: none;
   }
@@ -102,10 +112,9 @@ body {
 
 h1 {
   margin: 0;
-
   @media (min-width: 1024px) {
     background:
-      linear-gradient(90deg, transparent 5px, #e5e5e5 6px),
+      linear-gradient(90deg, transparent 5px, $bgColor 6px),
       linear-gradient(0, #ef5da8, #3877ee);
     font-size: 56px;
     padding: 0 calc(100% / 12);
@@ -114,9 +123,7 @@ h1 {
     top: -1em;
     z-index: -1;
   }
-
   @media (max-width: 1023px) {
     padding: 3em 0;
-    // font-size: 20px;
   }
 }
